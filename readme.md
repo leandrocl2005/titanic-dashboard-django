@@ -53,3 +53,7 @@ def index(request):
 - Instale pandas: `pip install pandas`
 - Veja a lista de bibliotecas instaladas: `pip freeze`
 - Crie o arquivo *requiments.txt* com as dependências do projeto
+
+## Commit 47ddad9
+
+- Enviar dados no contexto da view para o template! (ver vídeo)
