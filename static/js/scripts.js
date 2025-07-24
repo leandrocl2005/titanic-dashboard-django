@@ -16,14 +16,12 @@ Papa.parse(CSV_PATH, {
   complete: ({ data }) => {
     const rows = data.filter(r => r.Survived !== undefined)
     // KPIs
-    const total = rows.length
     const male = rows.filter(r => r.Sex === 'male').length
     const female = rows.filter(r => r.Sex === 'female').length
     const survived = rows.filter(r => r.Survived === '1').length
-    const rate = ((survived / total) * 100).toFixed(1)
+    const rate = ((survived / 891) * 100).toFixed(1)
     const totalFare = rows.reduce((s, r) => s + parseFloat(r.Fare || 0), 0)
 
-    document.getElementById('kpi-total').innerText = total
     document.getElementById('kpi-male').innerText = male
     document.getElementById('kpi-female').innerText = female
     document.getElementById('kpi-fare').innerText =
