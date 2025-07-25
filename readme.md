@@ -61,3 +61,7 @@ def index(request):
 ## Commit 7b624fd
 
 - Enviar dados do DB para o contexto da view e, então, para o template! (ver vídeo)
+
+## Commit 86448e0
+
+- Completar o código em dashboard/views.py para enviar todo o contexto com dados extraídos do bando de dados.
