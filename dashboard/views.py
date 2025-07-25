@@ -1,17 +1,23 @@
 from django.shortcuts import render
 import pandas as pd
+from dashboard.models import TitanicPassenger
 
 
 # Create your views here.
 def index(request):
     context = {}
     df = pd.read_csv("static/data/titanic.csv")
-    total_passenger = df.shape[0]
+
+    total_passenger = TitanicPassenger.objects.count()
     context["total_passenger"] = total_passenger
-    total_male = df[df["Sex"] == "male"].shape[0]
+
+    total_male = TitanicPassenger.objects.filter(sex="male").count()
     context["total_male"] = total_male
     context["total_female"] = total_passenger - total_male
-    context["total_fare"] = "$ " + str(int(df["Fare"].sum() // 1000)) + "K"
+
+    total_fare = sum(TitanicPassenger.objects.values_list("fare", flat=True))
+    context["total_fare"] = "$ " + str(int(total_fare // 1000)) + "K"
+
     total_survived = df[df["Survived"] == 1].shape[0]
     context["total_survived"] = total_survived
     context["survived_rate"] = round(total_survived / total_passenger * 100, 2)

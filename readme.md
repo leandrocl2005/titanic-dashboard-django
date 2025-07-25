@@ -56,4 +56,8 @@ def index(request):
 
 ## Commit 47ddad9
 
-- Enviar dados no contexto da view para o template! (ver vídeo)
+- Enviar dados do CSV para o contexto da view e, então, para o template! (ver vídeo)
+
+## Commit 7b624fd
+
+- Enviar dados do DB para o contexto da view e, então, para o template! (ver vídeo)
