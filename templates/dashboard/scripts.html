@@ -11,7 +11,6 @@ Chart.defaults.scales = {
 }
 
 
-// Data prep (igual ao original)
 const classes = {{classes}}
 const countByClass = {{count_by_class}}
 
@@ -39,6 +38,7 @@ new Chart('chart-class-donut', {
   },
   options: { responsive: true, maintainAspectRatio: false }
 })
+
 new Chart('chart-top-fare', {
   type: 'bar',
   data: {
@@ -68,6 +68,7 @@ new Chart('chart-top-fare', {
     }
   }
 })
+
 new Chart('chart-survived-class', {
   type: 'bar',
   data: {
@@ -95,10 +96,11 @@ new Chart('chart-survived-class', {
       }
     } }
 })
+
 new Chart('chart-embarked-class', {
   type: 'bar',
   data: {
-    labels: ['Southampton', 'Cherbourg', 'Queenstown'],
+    labels: ['Southampton', 'Queenstown', 'Cherbourg'],
     datasets: classes.map((c, i) => ({
       label: `${c}st Class`,
       data: ports.map((_, p) => embarkedData[p][i]),
@@ -115,7 +117,7 @@ new Chart('chart-embarked-class', {
           color: '#e5e7eb', 
           display: true, 
           font: { size: 14 },
-          callback: p => ports[p]
+          callback: p => ['Southampton', 'Queenstown', 'Cherbourg'][p]
         }
       },
       y: {
@@ -126,4 +128,5 @@ new Chart('chart-embarked-class', {
     }
   }
 })
+
 </script>
